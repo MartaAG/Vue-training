@@ -3,17 +3,16 @@
 <div class="hello">
   <h1>{{ msg }}</h1>
   <ul>
-    <a href="#Here">
-      <li v-for='n in 10' :key="n">
+    <a v-for='n in 10' :key="n" :href="`#${n}`">
+      <li >
         {{n}}
       </li>
     </a>
   </ul>
-  <div v-for='n in 10' :key="'a'+n" id="'a'+n">
-    <h3>{{n}}</h3>
+  <div v-for='number in numbers' :key="number.num" :id="number.num">
+    <h3>{{number.num}}</h3>
     <lorem add="1p"></lorem>
   </div>
-  <p id="Here">will you go here?</p>
 </div>
 </template>
 
@@ -28,6 +27,22 @@ export default {
   props: {
     msg: String
   },
+  data: function() {
+    return {
+    numbers: [
+      {num:1},
+      {num: 2},
+      {num: 3},
+      {num: 4},
+      {num: 5},
+      {num: 6},
+      {num: 7},
+      {num: 8},
+      {num: 9},
+      {num: 10}
+    ]
+  }
+  }
 }
 </script>
 
@@ -36,8 +51,6 @@ export default {
 h3 {
   margin: 40px 0 0;
 }
-
-li {}
 
 a {
   color: #42b983;
