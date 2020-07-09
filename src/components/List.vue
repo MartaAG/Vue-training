@@ -1,19 +1,20 @@
 
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-    list of numbers
-    </p>
-    <ol>
-      <li v-for='n in 10'
-          :key="n">
-        <h3>{{n}}</h3>
-        <lorem add="1p"></lorem>
+<div class="hello">
+  <h1>{{ msg }}</h1>
+  <ul>
+    <a href="#Here">
+      <li v-for='n in 10' :key="n">
+        {{n}}
       </li>
-
-    </ol>
+    </a>
+  </ul>
+  <div v-for='n in 10' :key="'a'+n" id="'a'+n">
+    <h3>{{n}}</h3>
+    <lorem add="1p"></lorem>
   </div>
+  <p id="Here">will you go here?</p>
+</div>
 </template>
 
 <script>
@@ -22,11 +23,11 @@ import LoremIpsum from 'vue-lorem-ipsum';
 export default {
   name: 'List',
   components: {
-   'lorem': LoremIpsum
+    'lorem': LoremIpsum
   },
   props: {
     msg: String
-  }
+  },
 }
 </script>
 
@@ -36,8 +37,8 @@ h3 {
   margin: 40px 0 0;
 }
 
-li {
-}
+li {}
+
 a {
   color: #42b983;
 }
