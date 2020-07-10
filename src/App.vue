@@ -1,18 +1,18 @@
 <template>
   <div id="app">
+    <div id="nav">
+      <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link>
+    </div>
+    <router-view/>
     <img alt="Vue logo" src="./assets/logo.png">
-    <List msg="Trying new progressive framework" />
   </div>
 </template>
 
 <script>
-import List from './components/List.vue'
 
 export default {
-  name: 'App',
-  components: {
-    List
-  }
+  name: 'App'
 }
 </script>
 
