@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <List msg="Trying new progressive framework" />
+    <List />
   </div>
 </template>
 

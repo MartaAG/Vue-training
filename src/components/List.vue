@@ -1,18 +1,16 @@
 
 <template>
-<div class="hello">
-  <h1>{{ msg }}</h1>
+<div>
   <ul>
-    <a v-for='n in 10' :key="n" :href="`#${n}`">
-      <li >
-        {{n}}
-      </li>
-    </a>
+    <li><a v-for="number in numbers" :key="number" :href="`#${number}`">
+        {{number}}
+      </a> </li>
+
   </ul>
-  <div v-for='number in numbers' :key="number.num" :id="number.num">
-    <h3>{{number.num}}</h3>
-    <lorem add="1p"></lorem>
-  </div>
+  <template v-for="number in numbers">
+    <h3 :key="'a' + number" :id="number">{{number}}</h3>
+    <lorem add="1p" :key="'i' + number"></lorem>
+  </template>
 </div>
 </template>
 
@@ -24,24 +22,11 @@ export default {
   components: {
     'lorem': LoremIpsum
   },
-  props: {
-    msg: String
-  },
+
   data: function() {
     return {
-    numbers: [
-      {num:1},
-      {num: 2},
-      {num: 3},
-      {num: 4},
-      {num: 5},
-      {num: 6},
-      {num: 7},
-      {num: 8},
-      {num: 9},
-      {num: 10}
-    ]
-  }
+      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    }
   }
 }
 </script>
@@ -50,6 +35,9 @@ export default {
 <style scoped>
 h3 {
   margin: 40px 0 0;
+}
+ul {
+  list-style: none;
 }
 
 a {
