@@ -1,14 +1,9 @@
 <template>
   <div id="app">
-<<<<<<< HEAD
-    <img alt="Vue logo" src="./assets/logo.png">
-    <List />
-=======
     <div id="nav">
-      <router-link to="/">Home</router-link> 
+      <router-link to="/">Home</router-link>
     </div>
     <router-view/>
->>>>>>> router-feature
   </div>
 </template>
 
