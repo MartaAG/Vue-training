@@ -1,8 +1,8 @@
 <template>
 <div>
   <ul>
-    <router-link v-for="number in numbers" :key="number" :to="{name: 'Text', params:{id:number}}">
-        {{number}}
+    <router-link v-for="n in 10" :key="n" :to="{name: 'Text', params:{id:n}}">
+        {{n}}
     </router-link>
 
   </ul>
@@ -12,12 +12,6 @@
 <script>
 export default {
   name: 'List',
-
-  data: function() {
-    return {
-      numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    }
-  }
 }
 </script>
 
