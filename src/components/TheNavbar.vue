@@ -2,13 +2,22 @@
   <v-app-bar
       app
       color="indigo"
+      shrink-on-scroll
+      prominent
       dark>
 
-      <v-tabs>
+      <v-tabs
+      background-color="deep-purple accent-4"
+      show-arrows
+      centered
+      >
             <v-tab :to="{name:'Home'}">
               Home
             </v-tab>
-            <v-tab v-for="n in 10" :key="n" :to="{name: 'Text', params:{id:n}}">
+            <v-tab
+            v-for="n in 10"
+            :key="n"
+            :to="{name: 'Text', params:{id:n}}">
             {{n}}
             </v-tab>
     </v-tabs>

@@ -1,30 +1,31 @@
 <template>
   <v-app id="inspire">
      <v-app id="inspire">
-        <TheNavbar>
 
-        </TheNavbar>
+        <TheNavbar />
 
        <v-main>
          <v-container
            class="fill-height"
-           fluid
          >
            <v-row
              align="center"
              justify="center"
+             align-content="center"
            >
-             <v-col class="text-center">
+             <v-col
+             cols="7"
+             class="text-center">
 
                  <router-view />
-                 
+
              </v-col>
            </v-row>
          </v-container>
        </v-main>
 
        <v-footer
-         color="indigo"
+         color="deep-purple accent-4"
          app
        >
          <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
