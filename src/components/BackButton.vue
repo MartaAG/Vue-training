@@ -1,5 +1,7 @@
 <template>
-  <v-btn @click="goBack" large color="primary">go back</v-btn>
+  <v-app>
+    <v-btn color="info" @click="goBack">go back</v-btn>
+  </v-app>
 </template>
 
 <script>
