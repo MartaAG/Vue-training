@@ -2,7 +2,7 @@
   <v-app id="inspire">
      <v-app id="inspire">
         <TheNavbar>
-          
+
         </TheNavbar>
 
        <v-main>
@@ -15,13 +15,14 @@
              justify="center"
            >
              <v-col class="text-center">
-               <HelloWorld>
 
-               </HelloWorld>
+                 <router-view />
+                 
              </v-col>
            </v-row>
          </v-container>
        </v-main>
+
        <v-footer
          color="indigo"
          app
@@ -33,14 +34,12 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
 import TheNavbar from './components/TheNavbar';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
     TheNavbar
   },
 

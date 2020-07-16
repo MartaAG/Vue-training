@@ -1,5 +1,8 @@
 <template>
-  <h1>yo nice to hear ya</h1>
+  <div>
+    <h1>Home</h1>
+    <img alt="Vue logo" src="../assets/logo.png" />
+  </div>
 </template>
 
 <script>

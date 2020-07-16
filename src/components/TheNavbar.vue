@@ -1,17 +1,18 @@
 <template>
-    <v-app-bar
+  <v-app-bar
       app
       color="indigo"
-      dark
-    >
+      dark>
+
       <v-tabs>
-    <v-tab  v-for="n in 10" :key="n">
-      <router-link :to="{name: 'Text',   params:{id:n}}">
-      {{n}}
-      </router-link>
-    </v-tab>
+            <v-tab :to="{name:'Home'}">
+              Home
+            </v-tab>
+            <v-tab v-for="n in 10" :key="n" :to="{name: 'Text', params:{id:n}}">
+            {{n}}
+            </v-tab>
     </v-tabs>
-    </v-app-bar>
+  </v-app-bar>
 </template>
 
 <script>

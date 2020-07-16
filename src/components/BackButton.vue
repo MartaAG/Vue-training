@@ -1,5 +1,5 @@
 <template>
-  <button @click="goBack">go back</button>
+  <v-btn @click="goBack" large color="primary">go back</v-btn>
 </template>
 
 <script>
@@ -12,9 +12,3 @@
     }
   }
 </script>
-
-<style scoped>
-  button {
-    cursor: pointer;
-  }
-</style>
