@@ -11,7 +11,7 @@ const routes = [
     component: Home
   },
   {
-    path:"/Text",
+    path:"/:id",
     name: "Text",
     component: () => import(/* webpackChunkName: "paragraph" */ "../views/Paragraph.vue")
   }
