@@ -1,7 +1,7 @@
 <template>
 <div>
   <h2>{{this.$route.params.id}}</h2>
-  <lorem :id="this.$route.params.id" add="1p"></lorem>
+  <lorem :key="this.$route.params.id" add="1p"></lorem>
 
   <BackButton />
 </div>
