@@ -26,6 +26,21 @@
 
 <script>
   export default {
-    name: 'TheNavbar'
+    name: 'TheNavbar',
+
+    mounted() {
+
+    },
+    
+    watch: {
+      $route(to, from) {
+     // react to route changes...
+     //if the route change, then save it to local storage
+     if(to.path !== from.path) {
+       localStorage.setItem('path', this.$route.path);
+     }
+   }
+    }
   }
+
 </script>
