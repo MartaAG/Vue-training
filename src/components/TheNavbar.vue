@@ -1,46 +1,35 @@
 <template>
-  <v-app-bar
-      app
-      color="indigo"
-      shrink-on-scroll
-      prominent
-      dark>
+<v-app-bar app color="indigo" shrink-on-scroll prominent dark>
 
-      <v-tabs
-      background-color="deep-purple accent-4"
-      show-arrows
-      centered
-      >
-            <v-tab :to="{name:'Home'}">
-              Home
-            </v-tab>
-            <v-tab
-            v-for="n in 10"
-            :key="n"
-            :to="{name: 'Text', params:{id:n}}">
-            {{n}}
-            </v-tab>
-    </v-tabs>
-  </v-app-bar>
+  <v-tabs background-color="deep-purple accent-4" show-arrows centered>
+    <v-tab :to="{name:'Home'}">
+      Home
+    </v-tab>
+    <v-tab v-for="n in 10" :key="n" :to="{name: 'Text', params:{id:n}}">
+      {{n}}
+    </v-tab>
+  </v-tabs>
+</v-app-bar>
 </template>
 
 <script>
-  export default {
-    name: 'TheNavbar',
+export default {
+  name: 'TheNavbar',
 
-    mounted() {
+  mounted() {
+    if (localStorage.getItem('path')) {
+      this.$router.push(localStorage.getItem('path'))
+    }
+  },
 
-    },
-    
-    watch: {
-      $route(to, from) {
-     // react to route changes...
-     //if the route change, then save it to local storage
-     if(to.path !== from.path) {
-       localStorage.setItem('path', this.$route.path);
-     }
-   }
+  watch: {
+    $route(to, from) {
+      // react to route changes...
+      //if the route change, then save it to local storage
+      if (to.path !== from.path) {
+        localStorage.setItem('path', this.$route.path);
+      }
     }
   }
-
+}
 </script>
