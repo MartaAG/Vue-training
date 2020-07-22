@@ -28,7 +28,11 @@
          color="deep-purple accent-4"
          app
        >
-         <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
+        <v-spacer/>
+         <span class="white--text">
+           <DisplayHistory />
+         </span>
+         <v-spacer/>
        </v-footer>
      </v-app>
    </v-app>
@@ -36,12 +40,14 @@
 
 <script>
 import TheNavbar from './components/TheNavbar';
+import DisplayHistory from './components/DisplayHistory';
 
 export default {
   name: 'App',
 
   components: {
-    TheNavbar
+    TheNavbar,
+    DisplayHistory
   }
 }
 </script>
