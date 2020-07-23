@@ -13,12 +13,23 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
   name: 'TheNavbar',
-
+  //define a method which commits changes to state
+  methods: {
+    ...mapMutations({
+      pushToHistory: 'addToHistory'
+    })
+  },
+  //read from local storage last saved path
   mounted() {
-    if (localStorage.getItem('path')) {
-      this.$router.push(localStorage.getItem('path'))
+    if (localStorage.getItem('id')) {
+        this.$router.push({
+        name: "Text",
+        //get the id from the local storage
+        params : {id: localStorage.getItem('id')}}
+      )
     }
   },
 
@@ -27,7 +38,10 @@ export default {
       // react to route changes...
       //if the route change, then save it to local storage
       if (to.path !== from.path) {
-        localStorage.setItem('path', this.$route.path);
+      //save to local storage id of path
+        localStorage.setItem('id', this.$route.params.id);
+      //commit to mutations a change
+        this.pushToHistory(this.$route.params.id)
       }
     }
   }
