@@ -13,7 +13,9 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import {
+  mapMutations
+} from 'vuex'
 export default {
   name: 'TheNavbar',
   //define a method which commits changes to state
@@ -24,24 +26,33 @@ export default {
   },
   //read from local storage last saved path
   mounted() {
-    if (localStorage.getItem('id')) {
-        this.$router.push({
+    if (localStorage.getItem('visitedPage')) {
+      this.$router.push({
         name: "Text",
         //get the id from the local storage
-        params : {id: localStorage.getItem('id')}}
-      )
+        params: {
+          id: localStorage.getItem('visitedPage')
+        }
+      })
+    } else {
+      //if there is no id in path, go to Home
+      this.$router.push({
+        name: "Home"
+      })
     }
   },
 
   watch: {
     $route(to, from) {
       // react to route changes...
-      //if the route change, then save it to local storage
-      if (to.path !== from.path) {
-      //save to local storage id of path
-        localStorage.setItem('id', this.$route.params.id);
-      //commit to mutations a change
-        this.pushToHistory(this.$route.params.id)
+      //if route with id exists and path changes
+      if (this.$route.params.id && to.path !== from.path) {
+          //save to local storage id of path
+          localStorage.setItem('visitedPage', this.$route.params.id);
+          //commit to mutations a change
+          this.pushToHistory(this.$route.params.id)
+      } else {
+        localStorage.removeItem('visitedPage');
       }
     }
   }
