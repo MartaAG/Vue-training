@@ -27,7 +27,7 @@
        <v-footer
          color="deep-purple accent-4"
          app
-       >
+       > 
          <span class="white--text">&copy; {{ new Date().getFullYear() }}</span>
        </v-footer>
      </v-app>

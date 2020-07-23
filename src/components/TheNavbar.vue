@@ -17,17 +17,22 @@ export default {
   name: 'TheNavbar',
 
   mounted() {
-    if (localStorage.getItem('path')) {
-      this.$router.push(localStorage.getItem('path'))
+    if (localStorage.getItem('paragraphId')) {
+      this.$router.push(localStorage.getItem('paragraphId'))
+    } else {
+      //if id does not exist go to home
+      this.$router.push({name: "Home"})
     }
   },
 
   watch: {
     $route(to, from) {
       // react to route changes...
-      //if the route change, then save it to local storage
-      if (to.path !== from.path) {
-        localStorage.setItem('path', this.$route.path);
+      //if the route change and id exists, save it to localStorage
+      if (to.path !== from.path && this.$route.params.id) {
+        localStorage.setItem('paragraphId', this.$route.params.id);
+      } else {
+        localStorage.removeItem('paragraphId');
       }
     }
   }
