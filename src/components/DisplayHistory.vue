@@ -1,7 +1,7 @@
 <template>
   <div> you saw:
-    <span v-for="showNumber in showNumbers" :key="showNumber">
-      {{showNumber}} ➡️
+    <span>
+      {{b}}
     </span>
   </div>
 </template>
@@ -11,7 +11,12 @@ import {mapGetters} from 'vuex'
   export default {
     name: 'DisplayHistory',
     //display state
-    computed: mapGetters(['showNumbers'])
+    computed: {
+    ...mapGetters(['showNumbers']),
+    b: function() {
+      return this.showNumbers.join(' ➡️ ')
+    },
+  },
 
   }
 </script>
